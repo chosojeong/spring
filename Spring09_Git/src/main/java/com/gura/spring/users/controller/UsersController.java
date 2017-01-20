@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Controller; 
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,6 +22,43 @@ public class UsersController {
 	//의존 객체 주입 되도록
 	@Autowired
 	private UsersService usersService;
+	
+	//6 "users/signout.do" 요청처리
+	@RequestMapping("users/signout")
+	public ModelAndView signout(HttpSession session) {
+		// 세션 초기화
+		//session.invalidate();
+		// 세션에서 id 정보만 지우기
+		session.removeAttribute("id");
+		ModelAndView mView= new ModelAndView();
+		mView.addObject("msg", "로그아웃 되었습니다.");
+		mView.addObject("redirectUri", session.getServletContext().getContextPath());
+		mView.setViewName("users/alert");
+		return mView;
+	} 
+	
+	//5 "users/signin.do" 요청처리
+	@RequestMapping("users/signin")
+	public ModelAndView signin(@ModelAttribute UsersDto dto, @RequestParam String uri, HttpSession session){
+		//아이디 비밀번호가 유효한지 여부를 확인한다.
+		boolean isValid= usersService.isValid(dto);
+		ModelAndView mView = new ModelAndView();
+		if(isValid){	//아이디 비밀 번호가 맞는 정보인 경우
+			//로그인 처리를 해준다.
+			session.setAttribute("id", dto.getId());
+			mView.addObject("msg", dto.getId() + "님 로그인 되었습니다.");
+			mView.addObject("redirectUri", uri);
+		}else{
+			//아이디 혹은 비밀번호가 틀리다는 정보를 응답한다.
+			mView.addObject("msg", "아이디 혹은 비밀번호가 틀려요");
+			String location=session.getServletContext().getContextPath()+"/users/signin_form.do?uri="+uri;
+			mView.addObject("redirectUri", uri);
+		}
+		//알림 페이지로 forward 이동 시킨다.
+		mView.setViewName("users/alert");
+		return mView;
+	}
+	
 	
 	//4 "users/signin_form.do" 로그인 폼 요청 처리
 	@RequestMapping("/users/signin_form")
