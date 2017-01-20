@@ -3,6 +3,7 @@ package com.gura.spring.users.controller;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,8 +22,17 @@ public class UsersController {
 	//의존 객체 주입 되도록
 	@Autowired
 	private UsersService usersService;
-	//3
-	//	"/users/signup.do" 요청 처리
+	
+	//4 "users/signin_form.do" 로그인 폼 요청 처리
+	@RequestMapping("/users/signin_form")
+	public String signinForm(HttpSession session){
+		//세션 초기화 - 중복 로그인 방지
+		session.invalidate();
+		//뷰 페이지로 forward 이동
+		return "users/signin_form";
+	}
+	
+	//3 "/users/signup.do" 요청 처리
 	@RequestMapping("/users/signup")
 	public ModelAndView signup(HttpServletRequest request, @ModelAttribute UsersDto dto){
 		//서비스를 이용해서 회원정보를 저장한다.
