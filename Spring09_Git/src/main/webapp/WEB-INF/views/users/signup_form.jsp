@@ -44,10 +44,11 @@
 		var inputId=$("#id").val();
 		//ajax 요청을 이용해서 서버에 전송
 		$.ajax({
-			url:"checkid.do",
+			url:"checkid.do",	// /users/checkid.do
 			method:"get",
 			data:{inputId:inputId},
-			
+			// inputId 로 전달되는 id를 서버에서 controller가 db에 존재하는지 확인한후 응답
+			// 응답되는 형태는 json -> {"canUse":true} or {"canUse":false}
 			success:function(data){
 				console.log(data);
 				$("#id").parent()
