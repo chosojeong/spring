@@ -33,6 +33,7 @@
 			<input class="form-control" type="text" 
 				id="email" name="email"/>
 		</div>
+		<!--  전송되는 id, pwd, email의 name 속성 확인 -->
 		<button type="submit">가입</button>
 	</form>
 </div>

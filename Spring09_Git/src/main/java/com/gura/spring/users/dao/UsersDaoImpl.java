@@ -15,7 +15,7 @@ public class UsersDaoImpl implements UsersDao{
 	
 	@Override
 	public void insert(UsersDto dto) {
-		
+		session.insert("users.insert", dto);
 		
 	}
 
