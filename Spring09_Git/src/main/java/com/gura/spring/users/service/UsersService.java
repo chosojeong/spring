@@ -13,4 +13,5 @@ public interface UsersService {
 	public void delete(String id);
 	//ajax에서 리턴하기 쉬운 타입으로 변경
 	public Map<String, Object> canUseId(String id);	
+	public ModelAndView getData(String id);
 }
