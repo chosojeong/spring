@@ -31,8 +31,7 @@ public class UsersDaoImpl implements UsersDao{
 
 	@Override
 	public void update(UsersDto dto) {
-		
-		
+		session.update("users.update", dto);
 	}
 
 	@Override
