@@ -22,4 +22,9 @@ public class CafeServiceImpl implements CafeService{
 		return mView;
 	}
 
+	@Override
+	public void insert(CafeDto dto) {
+		cafeDao.insert(dto);		
+	}
+
 }
