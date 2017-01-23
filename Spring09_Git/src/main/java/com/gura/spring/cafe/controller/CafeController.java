@@ -1,5 +1,7 @@
 package com.gura.spring.cafe.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,8 +20,8 @@ public class CafeController {
 	//파라미터로 페이지 번호가 넘어올수도 있고 안넘어 올 수도 있다.
 	//만일 안넘어오면 default 값으로 1을 넣어준다.
 	@RequestMapping("/cafe/list")
-	public ModelAndView list(@RequestParam(defaultValue="1") int pageNum){
-		ModelAndView mView=cafeService.getList(pageNum);
+	public ModelAndView list(HttpServletRequest request, @RequestParam(defaultValue="1") int pageNum){
+		ModelAndView mView=cafeService.getList(request, pageNum);
 		mView.setViewName("cafe/list");
 		return mView;
 	}
