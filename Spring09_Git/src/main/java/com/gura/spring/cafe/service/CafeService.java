@@ -1,7 +1,5 @@
 package com.gura.spring.cafe.service;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gura.spring.cafe.dao.CafeDto;
@@ -9,5 +7,8 @@ import com.gura.spring.cafe.dao.CafeDto;
 
 public interface CafeService {
 	public ModelAndView getList();
-	public void insert(CafeDto dto);	
+	public void insert(CafeDto dto);
+	public ModelAndView getData(int num);
+	public void update(CafeDto dto);
+	public void delete(int num);
 }

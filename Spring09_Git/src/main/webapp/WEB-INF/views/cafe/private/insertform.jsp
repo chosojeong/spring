@@ -7,8 +7,7 @@
 <meta charset="UTF-8"/>
 <title>views/cafe/private/insertform.jsp</title>
 <!-- SmartEditor 관련 javascript 로딩 -->
-<script src="${pageContext.request.contextPath }/
-	SmartEditor/js/HuskyEZCreator.js"></script>
+<script src="${pageContext.request.contextPath }/SmartEditor/js/HuskyEZCreator.js"></script>
 </head>
 <body>
 <h3>카페 새글 입력 페이지 입니다.</h3>

@@ -27,4 +27,25 @@ public class CafeServiceImpl implements CafeService{
 		cafeDao.insert(dto);		
 	}
 
+	@Override
+	public ModelAndView getData(int num) {
+		CafeDto dto= cafeDao.getData(num);
+		cafeDao.increaseViewCount(num);
+		ModelAndView mView = new ModelAndView();
+		mView.addObject("dto", dto);
+		return mView;
+	}
+
+	@Override
+	public void update(CafeDto dto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(int num) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
