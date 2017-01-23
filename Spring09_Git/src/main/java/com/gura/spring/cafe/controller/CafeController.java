@@ -15,9 +15,11 @@ public class CafeController {
 	@Autowired
 	private CafeService cafeService;
 	
+	//파라미터로 페이지 번호가 넘어올수도 있고 안넘어 올 수도 있다.
+	//만일 안넘어오면 default 값으로 1을 넣어준다.
 	@RequestMapping("/cafe/list")
-	public ModelAndView list(){
-		ModelAndView mView=cafeService.getList();
+	public ModelAndView list(@RequestParam(defaultValue="1") int pageNum){
+		ModelAndView mView=cafeService.getList(pageNum);
 		mView.setViewName("cafe/list");
 		return mView;
 	}

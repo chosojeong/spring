@@ -31,5 +31,35 @@
 	</c:forEach>
 	</tbody>
 </table>
+<!-- 페이지 디스플레이 출력 -->
+<div class="page_display">
+	<c:choose>
+		<c:when test="${startPageNum ne 1 }">
+			<a href="list.do?pageNum=${startPageNum-1 }">[ 이전 ]</a>
+		</c:when>
+		<c:otherwise>
+			<a class="muted" href="javascript:">[ 이전 ]</a>
+		</c:otherwise>
+	</c:choose>
+
+	<c:forEach var="i" begin="${startPageNum }" end="${endPageNum }">
+		<c:choose>
+			<c:when test="${i eq pageNum }">
+				<a class="active" href="list.do?pageNum=${i }">${i }</a>
+			</c:when>
+			<c:otherwise>
+				<a href="list.do?pageNum=${i }">${i }</a>
+			</c:otherwise>
+		</c:choose>
+	</c:forEach>
+	<c:choose>
+		<c:when test="${endPageNum lt totalPageCount }">
+			<a href="list.do?pageNum=${endPageNum+1 }">[ 다음 ]</a>
+		</c:when>
+		<c:otherwise>
+			<a class="muted" href="javascript:">[ 다음 ]</a>
+		</c:otherwise>
+	</c:choose>
+</div>
 </body>
 </html>
