@@ -21,7 +21,10 @@
 			<strong><a href="users/private/info.do">${id }</a></strong> 님 로그인중 ...
 			<a href="users/signout.do">로그아웃</a>
 		</div>
-	</c:otherwise>
+	</c:otherwise>	
 </c:choose>
+	<ul>
+		<li><a href="cafe/list.do">Cafe 글 목록 보기</a></li>
+	</ul>
 </body>
 </html>

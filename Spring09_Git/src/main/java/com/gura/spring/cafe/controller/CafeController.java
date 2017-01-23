@@ -12,10 +12,15 @@ public class CafeController {
 	@Autowired
 	private CafeService cafeService;
 	
-	@RequestMapping("cafe/list")
+	@RequestMapping("/cafe/list")
 	public ModelAndView list(){
 		ModelAndView mView=cafeService.getList();
 		mView.setViewName("cafe/list");
 		return mView;
+	}
+	//새글입력 폼 요청처리
+	@RequestMapping("/cafe/private/insertform")
+	public String insertForm(){
+		return "cafe/private/insertform";
 	}
 }
