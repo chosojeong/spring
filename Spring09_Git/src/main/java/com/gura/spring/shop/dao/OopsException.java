@@ -11,7 +11,6 @@ import org.springframework.dao.DataAccessException;
 public class OopsException extends DataAccessException{
 	public OopsException(String msg){
 		super(msg);
-		
 	}
 }
 
