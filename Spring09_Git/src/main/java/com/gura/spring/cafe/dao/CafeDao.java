@@ -1,8 +1,8 @@
-package com.gura.spring.cafe.dto;
+package com.gura.spring.cafe.dao;
 
 import java.util.List;
 
-import com.gura.spring.cafe.dao.CafeDto;
+import com.gura.spring.cafe.dto.CafeDto;
 
 public interface CafeDao {
 	public List<CafeDto> getList(CafeDto dto);

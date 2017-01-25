@@ -1,4 +1,4 @@
-package com.gura.spring.cafe.dao;
+package com.gura.spring.cafe.dto;
 
 public class CafeDto {
 	private int num;

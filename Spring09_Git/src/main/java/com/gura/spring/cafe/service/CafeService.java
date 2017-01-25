@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.web.servlet.ModelAndView;
 
-import com.gura.spring.cafe.dao.CafeDto;
+import com.gura.spring.cafe.dto.CafeDto;
 
 
 public interface CafeService {

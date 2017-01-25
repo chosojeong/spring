@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.gura.spring.cafe.dao.CafeDto;
-import com.gura.spring.cafe.dto.CafeDao;
+import com.gura.spring.cafe.dao.CafeDao;
+import com.gura.spring.cafe.dto.CafeDto;
 @Component
 public class CafeServiceImpl implements CafeService{
 

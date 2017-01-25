@@ -1,4 +1,4 @@
-package com.gura.spring.cafe.dto;
+package com.gura.spring.cafe.dao;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.gura.spring.cafe.dao.CafeDto;
+import com.gura.spring.cafe.dto.CafeDto;
 
 @Repository
 public class CafeDaoImpl implements CafeDao{
