@@ -20,13 +20,9 @@ public class UsersDaoImpl implements UsersDao{
 	}
 
 	@Override
-	public boolean isValid(UsersDto dto) {
-		UsersDto resultDto= session.selectOne("users.isValid", dto);
-		if(resultDto==null){	//select 된 정보가 없으
-			return false;	//잘못된 아이디 혹은 비밀번호
-		}else{	//select 된 정보가 있으면
-			return true;	//맞는 정보
-		}
+	public String getPassword(String id) {
+		String password = session.selectOne("users.getPwd", id);
+		return password;
 	}
 
 	@Override
@@ -55,5 +51,6 @@ public class UsersDaoImpl implements UsersDao{
 		UsersDto dto = session.selectOne("users.getData", id);
 		return dto;
 	}
+
 
 }
