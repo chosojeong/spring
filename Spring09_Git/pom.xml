@@ -150,7 +150,12 @@
 		    <artifactId>jackson-databind</artifactId>
 		    <version>2.6.0</version>
 		</dependency> 						
-		       
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-core</artifactId>
+		    <version>4.0.0.RELEASE</version>
+		</dependency>
 	</dependencies>
     <build>
         <plugins>
